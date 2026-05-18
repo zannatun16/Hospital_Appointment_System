@@ -1,6 +1,4 @@
 <?php
-// Authentication Controller
-// Location: HospitalAppointmentSystem/controllers/authController.php
 
 require_once '../config/database.php';
 
@@ -11,11 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $action = $_POST['action'];
         
         if ($action == 'login') {
-            // Login logic
+            
             $email = mysqli_real_escape_string($conn, $_POST['email']);
             $password = $_POST['password'];
             
-            // Validate input
+            
             $errors = [];
             if (empty($email)) {
                 $errors[] = "Email is required";
@@ -25,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
             
             if (empty($errors)) {
-                // Use prepared statement
+                
                 $sql = "SELECT * FROM users WHERE email = ?";
                 $stmt = mysqli_prepare($conn, $sql);
                 mysqli_stmt_bind_param($stmt, "s", $email);
@@ -39,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $_SESSION['user_email'] = $user['email'];
                     $_SESSION['role'] = $user['role'];
                     
-                    // Redirect based on role
+                    
                     if ($user['role'] == 'patient') {
                         header("Location: ../views/patient/patientDashboardS.php");
                     } elseif ($user['role'] == 'doctor') {
@@ -59,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 exit();
             }
         } elseif ($action == 'register') {
-            // Registration logic
+            
             $name = mysqli_real_escape_string($conn, $_POST['name']);
             $email = mysqli_real_escape_string($conn, $_POST['email']);
             $phone = mysqli_real_escape_string($conn, $_POST['phone']);
@@ -69,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $password = $_POST['password'];
             $confirm_password = $_POST['confirm_password'];
             
-            // Validate inputs
+            
             $errors = [];
             if (empty($name)) {
                 $errors[] = "Name is required";
@@ -107,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
             
             if (empty($errors)) {
-                // Check if email already exists
+                
                 $sql = "SELECT id FROM users WHERE email = ?";
                 $stmt = mysqli_prepare($conn, $sql);
                 mysqli_stmt_bind_param($stmt, "s", $email);
@@ -121,10 +119,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     exit();
                 }
                 
-                // Hash password
+                
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 
-                // Insert user
+                
                 $sql = "INSERT INTO users (name, email, phone, password_hash, role) VALUES (?, ?, ?, ?, 'patient')";
                 $stmt = mysqli_prepare($conn, $sql);
                 mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $phone, $hashed_password);
@@ -132,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (mysqli_stmt_execute($stmt)) {
                     $user_id = mysqli_insert_id($conn);
 
-                    // Insert patient details into patients table
+                
                     $sql_patient = "INSERT INTO patients (user_id, date_of_birth, blood_group, gender) VALUES (?, ?, ?, ?)";
                     $stmt_patient = mysqli_prepare($conn, $sql_patient);
                     mysqli_stmt_bind_param($stmt_patient, "isss", $user_id, $date_of_birth, $blood_group, $gender);

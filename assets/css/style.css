@@ -1,5 +1,4 @@
-/* Main Stylesheet */
-/* Location: HospitalAppointmentSystem/assets/css/style.css */
+
 
 * {
     margin: 0;
@@ -9,7 +8,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* FIXED: Adjusted color distribution so the vibrant, deeper purple-blue matches your exact layout view */
+    
     background: linear-gradient(135deg, #2b3577 0%, #201733 40%, #0f0b14 100%);
     min-height: 100vh;
     display: flex;
@@ -25,7 +24,7 @@ body {
     padding-bottom: 60px;
 }
 
-/* Navbar Styles */
+
 .navbar {
     background: rgba(26, 26, 26, 0.95); 
     padding: 1rem 2rem;
@@ -181,9 +180,9 @@ body {
     box-shadow: 0 0 0 3px rgba(107, 122, 187, 0.2);
 }
 
-/* Button Component Styles */
+
 button, .btn {
-    /* Exact login button gradient combo: Blue (#2b3377) to Purple (#6f51a7) */
+    
     background: linear-gradient(90deg, #2b3377 0%, #6f51a7 100%);
     color: white;
     padding: 12px 30px;
@@ -225,7 +224,7 @@ button:active {
     transform: translateY(0);
 }
 
-/* General Dynamic App Cards */
+
 .card {
     background: #1a1a1a;
     border-radius: 12px;
@@ -246,7 +245,7 @@ button:active {
     font-weight: 600;
 }
 
-/* Dashboard Metrics Setup */
+
 .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -271,7 +270,6 @@ button:active {
     margin: 15px 0;
 }
 
-/* Table Architecture Styles */
 .table-container {
     overflow-x: auto;
     background: #1a1a1a;
@@ -302,7 +300,7 @@ tr:hover {
     background: #242424;
 }
 
-/* System Alerts Configuration */
+
 .alert {
     padding: 15px 20px;
     margin-bottom: 20px;
@@ -323,7 +321,7 @@ tr:hover {
     border-left-color: #dc3545;
 }
 
-/* Search Box Form Layout */
+
 .search-box {
     margin-bottom: 20px;
 }
@@ -344,7 +342,7 @@ tr:hover {
     box-shadow: 0 0 0 3px rgba(107, 122, 187, 0.2);
 }
 
-/* Context Badge Identifiers */
+
 .status-badge {
     padding: 6px 12px;
     border-radius: 20px;
@@ -373,7 +371,7 @@ tr:hover {
     color: white;
 }
 
-/* Footer Section */
+
 footer {
     background: rgba(0, 0, 0, 0.4);
     color: white;
@@ -383,7 +381,7 @@ footer {
     backdrop-filter: blur(5px);
 }
 
-/* Navigation Links within Card Subtext */
+
 .form-link {
     text-align: center;
     margin-top: 20px;
@@ -402,7 +400,7 @@ footer {
     text-decoration: underline;
 }
 
-/* Embedded Demo Reference Block */
+
 .demo-box {
     background: #151515; 
     border: 2px solid #2b3377;
@@ -428,7 +426,7 @@ footer {
     color: #fff;
 }
 
-/* Media Responsive Boundaries */
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;

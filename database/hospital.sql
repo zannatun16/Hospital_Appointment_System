@@ -1,10 +1,9 @@
--- Hospital Appointment Booking System Database
--- Database Name: HospitalAppointment
+
 
 CREATE DATABASE IF NOT EXISTS HospitalAppointment;
 USE HospitalAppointment;
 
--- Users table
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -15,14 +14,14 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Specializations table
+
 CREATE TABLE specializations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Doctors table
+
 CREATE TABLE doctors (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -33,7 +32,7 @@ CREATE TABLE doctors (
     FOREIGN KEY (specialization_id) REFERENCES specializations(id) ON DELETE CASCADE
 );
 
--- Doctor availability table
+
 CREATE TABLE doctor_availability (
     id INT AUTO_INCREMENT PRIMARY KEY,
     doctor_id INT NOT NULL,
@@ -45,7 +44,7 @@ CREATE TABLE doctor_availability (
     FOREIGN KEY (doctor_id) REFERENCES doctors(id) ON DELETE CASCADE
 );
 
--- Appointments table
+
 CREATE TABLE appointments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT NOT NULL,
@@ -59,7 +58,7 @@ CREATE TABLE appointments (
     FOREIGN KEY (doctor_id) REFERENCES doctors(id) ON DELETE CASCADE
 );
 
--- Consultation notes table
+
 CREATE TABLE consultation_notes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     appointment_id INT NOT NULL,
@@ -73,7 +72,7 @@ CREATE TABLE consultation_notes (
     FOREIGN KEY (patient_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
--- Patients profile table
+
 CREATE TABLE patients (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -84,7 +83,7 @@ CREATE TABLE patients (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
--- Doctor reviews table
+
 CREATE TABLE doctor_reviews (
     id INT AUTO_INCREMENT PRIMARY KEY,
     appointment_id INT NOT NULL,
@@ -99,7 +98,7 @@ CREATE TABLE doctor_reviews (
     FOREIGN KEY (doctor_id) REFERENCES doctors(id) ON DELETE CASCADE
 );
 
--- Insert sample specializations
+
 INSERT INTO specializations (name) VALUES
 ('Cardiology'),
 ('Neurology'),
@@ -110,19 +109,19 @@ INSERT INTO specializations (name) VALUES
 ('Ophthalmology'),
 ('ENT Specialist');
 
--- Insert admin user
+
 INSERT INTO users (name, email, password_hash, phone, role) VALUES
 ( 'Zoita', 'Zoita@gmail.com', '$2y$10$97kb54Tl1WY9aLgRV6Wm.OeAP/1ZnFBbdlo.TEKCAu5OPc5jviAGu', '01711111111', 'admin');
 
--- Insert patient user
+
 INSERT INTO users (name, email, password_hash, phone, role) VALUES
  ('Sadman', 'Sadman@gmail.com', '$2y$10$ZZ4ZePKsjaPK76f6GRAH9u2usl62brtMfRUS/.lPL4JQ2nbTtF1tG', '01722222222', 'patient');
 
--- Insert doctor user
+
 INSERT INTO users (name, email, password_hash, phone, role) VALUES
 ('Mayeesha', 'Mayeesha@gmail.com', '$2y$10$V0PqVNw5a53CsdYIVLy7IeKWwvwBEon.auyVGhgp476i4YhG3HUTu', '01733333333', 'doctor');
 
--- Insert doctor details
+
 INSERT INTO doctors (user_id, specialization_id, consultation_fee, experience_years) VALUES
 (3, 1, 800.00, 10);
 

@@ -1,12 +1,11 @@
 <?php
-// Admin Controller - Mayeesha
-// Location: HospitalAppointmentSystem/controllers/adminControllerM.php
+
 
 session_start();
 require_once '../config/database.php';
 require_once '../models/adminModelZ.php';
 
-// Check if user is logged in and is admin
+
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
     header("Location: ../views/shared/login.php");
     exit();

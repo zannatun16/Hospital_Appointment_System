@@ -1,11 +1,10 @@
 <?php
-// Navbar include file
-// Location: HospitalAppointmentSystem/includes/navbar.php
 
-$baseUrl = '/HospitalAppointmentSystem';
+
+$baseUrl = '/Hospital_Appointment_System';
 
 if (!isset($_SESSION['user_id'])) {
-    // Show login/register navbar for non-logged in users
+    
 ?>
 <nav class="navbar">
     <div class="nav-brand">
@@ -19,7 +18,7 @@ if (!isset($_SESSION['user_id'])) {
 </nav>
 <?php
 } else {
-    // Show role-specific navbar
+    
     $role = $_SESSION['role'];
 ?>
 <nav class="navbar">

@@ -1,7 +1,6 @@
-// Main JavaScript file
-// Location: HospitalAppointmentSystem/assets/js/main.js
 
-// Form validation helper functions
+
+
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
@@ -26,7 +25,7 @@ function showMessage(message, type) {
     }
 }
 
-// AJAX helper function
+
 function makeAjaxRequest(url, method, data, callback) {
     const xhr = new XMLHttpRequest();
     xhr.open(method, url, true);
@@ -41,7 +40,7 @@ function makeAjaxRequest(url, method, data, callback) {
     xhr.send(data);
 }
 
-// Live search functionality
+
 function liveSearch(inputId, resultsContainer, ajaxUrl) {
     const input = document.getElementById(inputId);
     if (input) {

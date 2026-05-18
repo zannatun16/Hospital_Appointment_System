@@ -1,12 +1,11 @@
 <?php
-// Doctor Controller - Zoita
-// Location: HospitalAppointmentSystem/controllers/doctorControllerZ.php
+
 
 session_start();
 require_once '../config/database.php';
 require_once '../models/doctorModelM.php';
 
-// Check if user is logged in and is doctor
+
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'doctor') {
     header("Location: ../views/shared/login.php");
     exit();
@@ -47,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 if (empty($errors)) {
                     if (addConsultationNoteZ($conn, $appointment_id, $doctor_id, $patient_id, $diagnosis, $prescription)) {
-                        // Update appointment status to completed
+                        
                         updateAppointmentStatusZ($conn, $appointment_id, 'completed');
                         $_SESSION['success'] = "Consultation note added successfully";
                     } else {

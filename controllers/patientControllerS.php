@@ -1,12 +1,11 @@
 <?php
-// Patient Controller - Sadman
-// Location: HospitalAppointmentSystem/controllers/patientControllerS.php
+
 
 session_start();
 require_once '../config/database.php';
 require_once '../models/patientModelS.php';
 
-// Check if user is logged in and is patient
+
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'patient') {
     header("Location: ../views/shared/login.php");
     exit();
@@ -16,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['action'])) {
         switch($_POST['action']) {
             case 'book_appointment':
-                // Validate inputs
+                
                 $errors = [];
                 
                 if (empty($_POST['doctor_id'])) {
@@ -100,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $errors[] = "Review must be at least 10 characters";
                 }
 
-                // Verify this appointment belongs to the patient and is completed
+                
                 $sql = "SELECT doctor_id FROM appointments WHERE id = ? AND patient_id = ? AND status = 'completed'";
                 $stmt = mysqli_prepare($conn, $sql);
                 mysqli_stmt_bind_param($stmt, "ii", $appointment_id, $patient_id);
