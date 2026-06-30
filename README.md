@@ -8,7 +8,7 @@ This is a hospital Management System
 
 The Hospital Appointment Management System is designed to simplify the appointment process between patients and doctors. It provides separate dashboards for administrators, doctors, and patients, making hospital management more organized, efficient, and user-friendly.
 
----
+
 
 ## ✨ Features
 
@@ -35,7 +35,7 @@ The Hospital Appointment Management System is designed to simplify the appointme
 * View Appointment History
 * Update Profile
 
----
+
 
 ## 🛠️ Tech Stack
 
@@ -49,7 +49,7 @@ The Hospital Appointment Management System is designed to simplify the appointme
 | AJAX       | Asynchronous Requests     |
 | MVC        | Project Architecture      |
 
----
+
 
 ## 📂 Project Structure
 
@@ -67,4 +67,4 @@ HospitalAppointmentSystem/
 └── README.md
 
 
-⭐ **If you found this project helpful, please consider giving it a Star!**
+
