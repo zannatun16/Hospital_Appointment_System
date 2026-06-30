@@ -1,6 +1,4 @@
 # Hospital_Appointment_System
-This is a hospital Management System 
-# 🏥 Hospital Appointment Management System
 
 > A modern web-based Hospital Appointment Management System built with **PHP** and **MySQL** using the **MVC Architecture**.
 
